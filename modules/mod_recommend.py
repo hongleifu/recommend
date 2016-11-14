@@ -18,11 +18,12 @@ def service(request):
   #query=request.form.get('query','')
   type=request.args.get('type','')
   if type=='key_word':
-    print "recommend for keyword!"
+    print "recommend for keyword:"
     query=request.args.get('query','')
     if query != '':
       source=[]
-      source.append(query)
+      source.append(query.strip())
+     # source.append("股票".decode('utf8'))
       similars=global_var.MODEL.most_similar(positive=source,negative=[],topn=5)
       recommend={}
       recommend['recommend_type']='query'
@@ -35,9 +36,10 @@ def service(request):
       print return_string
       return return_string
   elif type=='user': 
-    print "recommend for user!"
+    print "recommend for user:"
     name=request.args.get('name','')
     if name != '':
+      print name
       recommend={}
       recommend['recommend_type']='user'
       recommend['result']='true'
