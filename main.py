@@ -36,4 +36,4 @@ def search():
 '''  MAIN ENTRY  '''
 if __name__ == '__main__':
 	app.debug = True
-	app.run(host="127.0.0.1",port=5200)
+	app.run(host="jinrongdao.com",port=5200)
